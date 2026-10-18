@@ -22,8 +22,23 @@ Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 
 [compat]
+CSV = "1.1.0"
+CategoricalArrays = "1.1.1"
+Crayons = "4.2.0"
+DataFrames = "1.8.2"
 Downloads = "1.7.0"
+FixedEffectModels = "2.1.0"
 JLD2 = "0.6.7"
+LinearAlgebra = "1.13.0"
+Missings = "1.2.0"
+OrderedCollections = "2.0.3"
+PrettyTables = "3.5.0"
+Random = "1.11.0"
+ReadStatTables = "0.4.0"
+ShiftedArrays = "2.0.0"
+Statistics = "1.11.5"
+StatsBase = "0.34.13"
+julia = "1.13.1"
 
 [extras]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
