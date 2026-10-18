@@ -6,6 +6,7 @@ Documenter.makedocs(
     sitename = "TwoWayFEWeights",
     format = Documenter.HTML(),
     modules = [TwoWayFEWeights],
+    checkdocs = :exports,
     pages = [
         "index.md",
         "package_structure.md",
