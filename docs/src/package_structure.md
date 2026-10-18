@@ -9,3 +9,5 @@ This function replicates the same behavior as the original R package, such that:
 graph LR
     A[Checks] --> B[Rename functions] --> C[Transform] --> D[Filter] --> E[Calculate] --> F[Result]
 ```
+
+The tests are made so that results are tested at each step against their R counterpart.

@@ -16,6 +16,7 @@ The TwoWayFEWeights.jl package computes the weights associated with TWFE regress
 ## Examples
 
 In order to run the examples, we are going to load the example dataset of the original package:
+
 ```julia
 url = "https://raw.githubusercontent.com/chaisemartinPackages/twowayfeweights/main/wagepan_twfeweights.dta"
 path = Downloads.download(url)

@@ -111,18 +111,18 @@ Estimates the weights and measure of robustness to treatment
 """
 function twowayfeweights(;
     data::DataFrames.DataFrame,
-    Y::String,
-    G::String,
-    T::String,
-    D::String,
-    type::String = "feTR",
-    D0::Union{String, Nothing} = nothing,
+    Y::AbstractString,
+    G::AbstractString,
+    T::AbstractString,
+    D::AbstractString,
+    type::AbstractString = "feTR",
+    D0::Union{AbstractString, Nothing} = nothing,
     summary_measures::Bool = false,
-    controls::Union{Vector{Any}, Vector{String}, String, Nothing} = nothing,
+    controls::Union{AbstractVector{T}, Nothing} where {T<:AbstractString} = nothing,
     weights::Union{AbstractVector{T}, Nothing} where {T<:Real} = nothing,
-    other_treatments::Union{Vector{String}, String, Nothing} = nothing,
-    test_random_weights::Union{String, Nothing} = nothing,
-    path::Union{String, Nothing} = nothing)
+    other_treatments::Union{AbstractVector{T}, Nothing} where {T<:AbstractString} = nothing,
+    test_random_weights::Union{AbstractString, Nothing} = nothing,
+    path::Union{AbstractString, Nothing} = nothing)
 
     @assert type ∈ ["feTR", "feS", "fdTR", "fdS"] "Argument `type` must be one of `feTR`, `feS`, `fdRTR`, or `fdS`."
 

@@ -1,6 +1,6 @@
 name = "TwoWayFEWeights"
 uuid = "82ae8496-443a-4292-ae20-d7c088f3d720"
-version = "1.0.0-DEV"
+version = "1.0.0"
 authors = ["Paulogcd <gugelmopaulo@gmail.com> and contributors"]
 
 [deps]

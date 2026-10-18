@@ -2,7 +2,7 @@ using Documenter
 using DocumenterMermaid
 using TwoWayFEWeights
 
-makedocs(
+Documenter.makedocs(
     sitename = "TwoWayFEWeights",
     format = Documenter.HTML(),
     modules = [TwoWayFEWeights],
