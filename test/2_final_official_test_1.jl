@@ -69,7 +69,8 @@ Test.@testset "1 - Wolfers 2006" begin
         other_treatments    = ["rel_time$(i)" for i in 2:16],
         test_random_weights = "year",
         path                = nothing
-    )
+    );
+    test_1_julia = OrderedCollections.OrderedDict(test_1_julia)
 
     test_1_R = RCall.rcopy(R"TwoWayFEWeights::twowayfeweights(
         data        = data,
@@ -84,11 +85,5 @@ Test.@testset "1 - Wolfers 2006" begin
         controls    = controls
     )")
 
-    # test_1_julia_dict = OrderedCollections.OrderedDict(test_1_julia)
-    # keys(test_1_julia_dict)
-    # for k in keys(test_1_julia_dict)
-    #     print(k, "\n")
-    #     Test.@test test_1_julia_dict[Symbol(k)] == test_1_R[Symbol(k)]
-    # end
-    @test isequal(test_1_R, test_1_julia)
+    compare_R_julia(test_1_R, test_1_julia)
 end;

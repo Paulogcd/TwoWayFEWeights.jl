@@ -21,6 +21,7 @@ Test.@testset "2 - Pierce Schott 2016" begin
         type    = "feTR",
         summary_measures = true
     )
+    test_2_julia = OrderedCollections.OrderedDict(test_2_julia)
 
     test_2_R = RCall.rcopy(R"
         TwoWayFEWeights::twowayfeweights(
@@ -34,11 +35,10 @@ Test.@testset "2 - Pierce Schott 2016" begin
         )"
     )
 
-    @test isequal(test_2_R, test_2_julia)
-    keys(test_2_R)
-    keys(test_2_julia)
     for k in intersect(keys(test_2_R), keys(test_2_julia))
-        print(k, " : ", test_2_R[k] == test_2_julia[k], "\n")
+        print(k, " : ", isequal(test_2_R[k], test_2_julia[k]), "\n")
     end
+
+    compare_R_julia(test_2_R, test_2_julia)
 
 end;

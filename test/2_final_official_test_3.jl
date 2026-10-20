@@ -34,7 +34,8 @@ Test.@testset "3 - Gentzkow et al. 2011" begin
         D0 = "numdailies",
         type = "fdTR",
         controls = styr_cols
-    ) # ERROR: DomainError with -2.2517998136852222e15:
+    )
+    test_3_julia = OrderedCollections.OrderedDict(test_3_julia)
     
     # Stata syntax
     # twowayfeweights Y G T D [D0], type(string)
@@ -53,5 +54,5 @@ Test.@testset "3 - Gentzkow et al. 2011" begin
     #         end
     #     end
     # end
-    test_result(test_3_R, test_3_julia)
+    compare_R_julia(test_3_R, test_3_julia)
 end;

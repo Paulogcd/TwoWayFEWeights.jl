@@ -18,13 +18,10 @@ Test.@testset "TwoWayFEWeights.jl" begin
 
     
     # Basic tests
-    # include(joinpath(@__DIR__, "print.jl"));
-    # include(joinpath(@__DIR__, "./0_initialisation.jl"));
-    # include(joinpath(@__DIR__, "./0_utils.jl"));
+    include(joinpath(@__DIR__, "./0_utils.jl"));
     
     # Intermediate function tests
-    # include("intermediate_twowayfeweights_calculate.jl");
-    # include("./1_intermediate_twowayfeweights_normalize_var.jl");
+    include("./1_intermediate_twowayfeweights_normalize_var.jl");
     
     # Final results tests
     include(joinpath(@__DIR__, "2_final_internal_test_wagepan.jl"));

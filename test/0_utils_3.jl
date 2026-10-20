@@ -1,8 +1,8 @@
-@testset "twowayfeweights_transform.jl" begin
+Test.@testset "twowayfeweights_transform.jl" begin
     
     # We first generate randomly the number of group and of time periods.
-    G = number_of_group = first(Random.rand(2:10, 1))
-    T = number_of_periods = first(Random.rand(3:10, 1))
+    G = first(Random.rand(2:10, 1))
+    T = first(Random.rand(3:10, 1))
 
     # For each group, we are then going to generate randomly 
     # the values and add them to the data frame that we 
@@ -41,19 +41,13 @@
         weights         = random_data_frame_test[!, :random_weights],
         treatments      = ["treatments"])
         
-        R_code_result = rcopy(R"TwoWayFEWeights:::twowayfeweights_transform(
-            df = random_data_frame_test,
-            controls = 'controls',
-            treatments = 'treatments', 
-            weights = random_data_frame_test$'random_weights')")
-        DataFrames.transform!(R_code_result, :TFactorNum => ((x) -> Int64.(x)) => :TFactorNum)        
-        DataFrames.transform!(R_code_result, :Tfactor => (x -> parse.(Int32, String.(x))) => :Tfactor)
- 
-    # names(R_code_result) == names(julia_code_result)
-    # for cc in names(julia_code_result)
-    #     julia_code_result[:, cc] == R_code_result[:, cc] ? print("No problem with column: ", cc, "\n") : print("Problem with column: ", cc, "\n")
-    #     # julia_code_result[:, cc] ≈ R_code_result[:, cc]
-    # end
+    R_code_result = rcopy(R"TwoWayFEWeights:::twowayfeweights_transform(
+        df = random_data_frame_test,
+        controls = 'controls',
+        treatments = 'treatments', 
+        weights = random_data_frame_test$'random_weights')")
+    DataFrames.transform!(R_code_result, :TFactorNum => ((x) -> Int64.(x)) => :TFactorNum)        
+    DataFrames.transform!(R_code_result, :Tfactor => (x -> parse.(Int32, String.(x))) => :Tfactor)
 
-    @test R_code_result == julia_code_result
+    Test.@test R_code_result == julia_code_result
 end

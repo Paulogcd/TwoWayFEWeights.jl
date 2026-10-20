@@ -30,6 +30,7 @@ Test.@testset "4 - Gentzkow et al. 2011" begin
         type    = "feTR",
         controls = styr_cols
     )
+    test_4_julia = OrderedCollections.OrderedDict(test_4_julia)
 
     for cc in keys(test_4_julia)
         if cc ∈ keys(test_4_R)
@@ -42,10 +43,8 @@ Test.@testset "4 - Gentzkow et al. 2011" begin
             end
         end
     end
-    test_4_julia = OrderedCollections.OrderedDict(test_4_julia)
+    
+    # test_result(test_4_R, test_4_julia)
     compare_R_julia(test_4_R, test_4_julia)
-    @test test_4_julia == test_4_R
-
-    test_result(test_4_R, test_4_julia)
     
 end;

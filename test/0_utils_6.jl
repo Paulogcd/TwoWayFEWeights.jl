@@ -1,8 +1,8 @@
-@testset "twowayfeweights_test_random_weights.jl" begin
+Test.@testset "twowayfeweights_test_random_weights.jl" begin
     
     # We first generate randomly the number of group and of time periods.
     G = number_of_group = first(Random.rand(2:10, 1))
-    T = number_of_periods = first(Random.rand(3:10, 1))
+    T =  first(Random.rand(3:10, 1))
 
     # For each group, we are then going to generate randomly 
     # the values and add them to the data frame that we 
@@ -46,5 +46,5 @@
         df = random_data_frame_test,
         random_weights = 'random_weights')")
 
-    @test R_code_result ≈ julia_code_result
+    Test.@test R_code_result ≈ julia_code_result
 end;

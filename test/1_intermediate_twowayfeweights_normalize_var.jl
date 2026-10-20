@@ -1,8 +1,8 @@
-@testset "twowayfeweights_normalize_var.jl" begin
+Test.@testset "twowayfeweights_normalize_var.jl" begin
         
     # We first generate randomly the number of group and of time periods.
     G = number_of_group = first(Random.rand(2:10, 1))
-    T = number_of_periods = first(Random.rand(3:10, 1))
+    T =  first(Random.rand(3:10, 1))
 
     # For each group, we are then going to generate randomly 
     # the values and add them to the data frame that we 
@@ -11,9 +11,9 @@
     
     for g in 1:G 
 
-    # This test requires at least 2 individuals in each group, 
-    # without which the standard deviation is NaN 
-    # and prevents the test.
+        # This test requires at least 2 individuals in each group, 
+        # without which the standard deviation is NaN 
+        # and prevents the test.
         
         random_Y_test               = Random.rand(T)
         random_D0                   = Random.rand(T)
@@ -55,7 +55,6 @@
          
     end
 
-    random_data_frame_test
     varname = "Y"
 
     # Now, we transfer this object to R via RCall:
