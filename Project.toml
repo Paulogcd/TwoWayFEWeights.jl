@@ -1,14 +1,13 @@
 name = "TwoWayFEWeights"
 uuid = "82ae8496-443a-4292-ae20-d7c088f3d720"
 version = "1.0.0"
-authors = ["Paulogcd <gugelmopaulo@gmail.com> and contributors"]
+authors = ["Clément de Chaisemartin, Xavier D'Haultfoeuille, ERC REALLYCREDIBLE Team members, Paulogcd <gugelmopaulo@gmail.com> and contributors"]
 
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
 CategoricalArrays = "324d7699-5711-5eae-9e2f-1d82baa6b597"
 Crayons = "a8cc5b0e-0ffa-5ad4-8c14-923d3ee1735f"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
-Downloads = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
 FixedEffectModels = "9d5cd8c9-2029-5cab-9928-427838db53e3"
 JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
@@ -26,19 +25,15 @@ CSV = "1.1.0"
 CategoricalArrays = "1.1.1"
 Crayons = "4.2.0"
 DataFrames = "1.8.2"
-Downloads = "1.7.0"
 FixedEffectModels = "2.1.0"
 JLD2 = "0.6.7"
-LinearAlgebra = "1.13.0"
 Missings = "1.2.0"
 OrderedCollections = "2.0.3"
 PrettyTables = "3.5.0"
-Random = "1.11.0"
 ReadStatTables = "0.4.0"
 ShiftedArrays = "2.0.0"
-Statistics = "1.11.5"
 StatsBase = "0.34.13"
-julia = "1.13.1"
+julia = "1.13"
 
 [extras]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"

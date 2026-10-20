@@ -186,7 +186,7 @@ function test_step_4_calculate(data_R, data_julia, save_bool = false)
         RCall.@rput data_R
 
         data_julia[:res] = TwoWayFEWeights.twowayfeweights_calculate(
-            dat_in     = data_julia[:data_filtered],
+            dat     = data_julia[:data_filtered],
             type       = data_julia[:type],
             controls   = data_julia[:controls_rename],
             treatments = data_julia[:treatments_rename]
@@ -224,7 +224,7 @@ function test_step_5_result(data_R, data_julia, save_bool = false)
         RCall.@rput data_R
 
         data_julia[:result] = TwoWayFEWeights.twowayfeweights_result(
-            dat_in          = data_julia[:res][:dat],
+            dat          = data_julia[:res][:dat],
             beta            = data_julia[:res][:beta],
             random_weights  = data_julia[:random_weight_rename],
             treatments      = data_julia[:treatments_rename]

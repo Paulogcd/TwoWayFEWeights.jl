@@ -152,7 +152,7 @@ begin
     
     # Julia
     resultat = twowayfeweights_calculate(
-        dat_in = data_filtered,
+        dat = data_filtered,
         type = type,
         controls = controls_rename,
         treatments = treatments_rename)
@@ -206,7 +206,7 @@ end
 # Result
 
 res = twowayfeweights_result(
-        dat_in         = resultat[:dat],
+        dat         = resultat[:dat],
         beta           = resultat[:beta],
         random_weights = random_weight_rename,
         treatments     = treatments_rename

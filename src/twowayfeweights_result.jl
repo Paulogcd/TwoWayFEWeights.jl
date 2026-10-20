@@ -18,26 +18,19 @@ end
 
 
 """
-Internal workhorse function for creating the return object of a
-`twowayfeweights()` call.
+Internal function creating the return object of a
+`twowayfeweights()` call. This function is run directly after `twowayfeweights_calculate()`.
 
-@param dat A data frame, as per the return object from
-  `twowayfeweights_calculate()`.
-@param beta Coefficient value of the treatment variable ("D"), again as per
-  the return object of `twowayfeweights_calculate()`.
-@param controls A vector indicating the column names of random weights.
-@param treatments A vector indicating the column names of other treatments.
-@returns A list.
-@details This function is normally run directly after
-  `twowayfeweights_calculate()`.
+- `dat`: A data frame, as per the return object from `twowayfeweights_calculate()`.
+- `beta`: Coefficient value of the treatment variable ("D"), again as per the return object of `twowayfeweights_calculate()`.
+- `controls`: A vector indicating the column names of random weights.
+- `treatments`: A vector indicating the column names of other treatments.
 """
 function twowayfeweights_result(;
-    dat_in::DataFrames.DataFrame,
+    dat::DataFrames.DataFrame,
     beta::Real,
     random_weights::Union{Nothing, String, Vector{String}},
     treatments = nothing)
-
-    dat = copy(dat_in)
     
     dat[!, :weight_result] = zero_below_eps(dat[!, :weight_result])
     

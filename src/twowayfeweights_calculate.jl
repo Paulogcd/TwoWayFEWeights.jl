@@ -2,12 +2,10 @@
 Internal funcion for calculating the twoway FE weights.
 """
 function twowayfeweights_calculate(;
-    dat_in::DataFrames.DataFrame,
+    dat::DataFrames.DataFrame,
     type::String,
     controls::Union{String, Vector{String}, Vector{Any}, Nothing},
     treatments::Union{String, Vector{String}, Nothing})
-
-    dat = copy(dat_in)
 
     if (!isnothing(treatments) && type != "feTR")
         @error("When the `other_treatments` argument is specified, you need to specify `type = 'feTR'` too.")
