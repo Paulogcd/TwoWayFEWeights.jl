@@ -59,10 +59,7 @@ function stepwise_test_3()
         data_R, data_julia = test_step_2_transform( data_R, data_julia);
         data_R, data_julia = test_step_3_filter(    data_R, data_julia);
         data_R, data_julia = test_step_4_calculate( data_R, data_julia);
-        # data_julia = JLD2.load(joinpath("/Users/paulogcd/twowayfeweights.jl/test/data/output/data_julia_4.jld2"))["data_julia"]
-        # data_R = RCall.rcopy(R"base::readRDS('/Users/paulogcd/twowayfeweights.jl/test/data/output/data_R_4.rds')")
-        # setdiff(keys(data_julia), keys(data_R))
-        data_R, data_julia = test_step_5_result(    data_R, data_julia); # Here lie 2 errors.
+        data_R, data_julia = test_step_5_result(    data_R, data_julia);
     end
 end
 stepwise_test_3();

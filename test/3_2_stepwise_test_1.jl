@@ -57,10 +57,10 @@ function stepwise_test_1()
         data_R, data_julia = test_step_3_filter(data_R, data_julia);
         data_R, data_julia = test_step_4_calculate(data_R, data_julia);
         data_R, data_julia = test_step_5_result(data_R, data_julia);
+        
+        # Cleaning up
+        rm(path)
     end
-    
-    # Cleaning up
-    rm(path)
 
 end;
 stepwise_test_1();
