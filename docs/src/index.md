@@ -19,7 +19,7 @@ In order to run the examples, we are going to load the example dataset of the or
 
 ```julia
 url = "https://raw.githubusercontent.com/chaisemartinPackages/twowayfeweights/main/wagepan_twfeweights.dta"
-path = Downloads.download(url)
+Downloads.download(url, "./wagepan_twfeweights.dta")
 wagepan = ReadStatTables.readstat(path)
 wagepan = DataFrames.DataFrame(wagepan)
 ```

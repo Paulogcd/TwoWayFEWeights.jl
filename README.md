@@ -44,7 +44,7 @@ using DataFrames
 
 # Loading the data
 url = "https://raw.githubusercontent.com/chaisemartinPackages/twowayfeweights/main/wagepan_twfeweights.dta"
-path = Downloads.download(url)
+path = Downloads.download(url, "./wagepan_twfeweights.dta")
 wagepan = ReadStatTables.readstat(path)
 wagepan = DataFrames.DataFrame(wagepan)
 

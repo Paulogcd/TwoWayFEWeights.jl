@@ -1,14 +1,9 @@
 Test.@testset "final_internal_test.jl" begin
 
-    using ReadStatTables
-    using Downloads
-
     # For this test, we are going to use the official / original 
     # code snipped used in the original package.
-    repo = "chaisemartinPackages/twowayfeweights/main"
-    file = "wagepan_twfeweights.dta"
-    url = "https://raw.githubusercontent.com" * "/" * repo * "/" * file
-    path = Downloads.download(url)
+    url = "https://raw.githubusercontent.com/chaisemartinPackages/twowayfeweights/main/wagepan_twfeweights.dta"
+    path = Downloads.download(url, "./wagepan_twfeweights.dta")
     wagepan = ReadStatTables.readstat(path)
     wagepan = DataFrames.DataFrame(wagepan)
     RCall.@rput wagepan
@@ -178,6 +173,6 @@ Test.@testset "final_internal_test.jl" begin
         Test.@test julia_resultat[:params]              == R_resultat[:params]
         Test.@test julia_resultat[:summary_measures]    == R_resultat[:summary_measures]
         Test.@test julia_resultat[:random_weights]      == R_resultat[:random_weights]
-    end
+    end;
 
 end;

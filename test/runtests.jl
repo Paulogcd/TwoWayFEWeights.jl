@@ -7,6 +7,7 @@ using Downloads
 using OrderedCollections
 using JLD2
 using CSV
+using ReadStatTables
 
 Test.@testset "TwoWayFEWeights.jl" begin
 

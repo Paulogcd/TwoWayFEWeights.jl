@@ -1,3 +1,8 @@
+# This file contains different functions that could help for a local test workflow.
+# They download the different datasets of the official test suite and save them in ./test/data.
+# Almost all modifications to the downloaded datasets were done by Anzony Quispe of the ERC REALLYCREDIBLE Team,
+# thanks to whom I could greatly improve the testing suite of the package against the R results.
+
 function data_official_test_1_download()
     url = "https://raw.githubusercontent.com/anzonyquispe/did_book/main/cc_xd_didtextbook_2025_9_30/Data%20sets/Wolfers%202006/wolfers2006_didtextbook.dta"
     destination = joinpath(@__DIR__, "2_official_test_1_data.dta")
@@ -6,8 +11,8 @@ end
 
 function data_official_test_2_download()
     url = "https://raw.githubusercontent.com/anzonyquispe/did_book/main/cc_xd_didtextbook_2025_9_30/Data%20sets/Pierce%20and%20Schott%202016/pierce_schott_didtextbook.dta"
-    tmp = Downloads.download(url)
-    data = ReadStatTables.readstat(tmp)
+    path = Downloads.download(url, "./pierce_schott_twfeweights.dta")
+    data = ReadStatTables.readstat(path)
     data = DataFrames.DataFrame(data)
 
     data_1 = DataFrames.DataFrame(indusid = data.indusid, time = 1, Y = 0, D = 0)
@@ -19,13 +24,13 @@ end
 
 function original_data_official_test_3_download()
     url = "https://raw.githubusercontent.com/anzonyquispe/did_book/main/cc_xd_didtextbook_2025_9_30/Data%20sets/Gentzkow%20et%20al%202011/gentzkowetal_didtextbook.RData"
-    tmp = Downloads.download(url)
-    obj = RData.load(tmp)
+    path = Downloads.download(url, "./gentzkowetal_twfeweights.dta")
+    obj = RData.load(path)
     data = obj["df"]
     data = DataFrames.DataFrame(data)
     RCall.@rput data
 
-    # Credit: Anzony Quispe
+    # Credit: Anzony Quispe of the ERC REALLYCREDIBLE Team.
     RCall.rcopy(R"
         df <- fastDummies::dummy_cols(data, select_columns = 'styr', remove_first_dummy = FALSE)
         df <- fastDummies::dummy_cols(df, select_columns = 'styr',
@@ -43,10 +48,15 @@ function original_data_official_test_3_download()
     ")
 end
 
+# This function attempts to reproduce in a simpler way the
+# previous data manipulation. It does not work, as the final
+# output are different. It would be nice to be able to do
+# this data manipulation in Julia, to be sure to understand
+# the operations.
 function alternative_data_official_test_3_download()
     url = "https://raw.githubusercontent.com/anzonyquispe/did_book/main/cc_xd_didtextbook_2025_9_30/Data%20sets/Gentzkow%20et%20al%202011/gentzkowetal_didtextbook.RData"
-    tmp = Downloads.download(url)
-    obj = RData.load(tmp)
+    path = Downloads.download(path, "./gentzkowetal_twfeweights_alternative.dta")
+    obj = RData.load(path)
     data = obj["df"]
     data = DataFrames.DataFrame(data)
     RCall.@rput data
@@ -70,7 +80,7 @@ function alternative_data_official_test_3_download()
     CSV.write("./test/data/2_official_test_3_data_alternative.csv", data)
 end
 
-# Work in progress...
+# Shows differences for now.
 function test_3_comparison()
     original = CSV.read("./test/data/2_official_test_3_data_original.csv", DataFrames.DataFrame)
     alternative = CSV.read("./test/data/2_official_test_3_data_alternative.csv", DataFrames.DataFrame)

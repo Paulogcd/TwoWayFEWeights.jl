@@ -8,17 +8,17 @@ Test.@testset "1 - Wolfers 2006" begin
 
     # Julia
     url = "https://raw.githubusercontent.com/anzonyquispe/did_book/main/cc_xd_didtextbook_2025_9_30/Data%20sets/Wolfers%202006/wolfers2006_didtextbook.dta"
-    tmp = Downloads.download(url)
-    data = ReadStatTables.readstat(tmp)
+    path = Downloads.download(url, "./wolfers2006_twfeweights.dta")
+    data = ReadStatTables.readstat(path)
     data = DataFrames.DataFrame(data)
     data[!, :state]
 
     # R
-    RCall.@rput tmp
+    RCall.@rput path
     RCall.rcopy(R"
-        data = haven::read_dta(tmp)
+        data = haven::read_dta(path)
     ")
-    # RCall.rcopy(R"data <- haven::read_dta(tmp)")
+    # RCall.rcopy(R"data <- haven::read_dta(path)")
 
     # Julia:
     other_treatments    = ["rel_time$(i)" for i in 2:16]
