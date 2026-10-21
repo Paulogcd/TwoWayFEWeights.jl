@@ -19,5 +19,10 @@ Documenter.makedocs(
 # for more information.
 deploydocs(
     repo = "github.com/Paulogcd/TwoWayFEWeights.jl",
-    devbranch = "main"
+    devbranch = "main",
+    versions = [
+        "stable" => "v^",
+        "v#.#.#",
+        "dev" => "dev",
+    ],
 )

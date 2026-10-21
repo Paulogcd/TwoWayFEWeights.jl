@@ -17,7 +17,6 @@ Test.@testset "TwoWayFEWeights.jl" begin
     include(joinpath(@__DIR__, "0_utils_python_environment.jl"))
     include(joinpath(@__DIR__, "0_utils_python_utils.jl"))
     
-    include(joinpath(@__DIR__, "3_0_utils_test_helper.jl"))
     include(joinpath(@__DIR__, "3_1_utils_test_stepwise.jl"))
 
     
