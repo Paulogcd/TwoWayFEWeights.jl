@@ -72,17 +72,4 @@ jobs:
 
       - uses: julia-actions/cache@v3
       - uses: julia-actions/julia-buildpkg@v1
-      
-      - name: Configure PyCall
-        run: julia --project -e 'using Pkg; Pkg.build("PyCall")'
-
-      - name: Verify PyCall Python
-        run: |
-          julia --project -e '
-            using PyCall
-            println("PyCall Python: ", PyCall.python)
-            pyimport("pandas")
-            pyimport("twowayfeweights")
-          '
-
       - uses: julia-actions/julia-runtest@v1
