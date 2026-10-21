@@ -32,6 +32,6 @@ Test.@testset "TwoWayFEWeights.jl" begin
     include(joinpath(@__DIR__, "2_final_official_test.jl"));
     
     # Stepwise tests
-    # include(joinpath(@__DIR__, "3_final_stepwise_official_test.jl"));
+    include(joinpath(@__DIR__, "3_final_stepwise_official_test.jl"));
 
 end;
