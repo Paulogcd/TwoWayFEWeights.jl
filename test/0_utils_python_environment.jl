@@ -14,6 +14,7 @@ if realpath(PyCall.python) != realpath(PYTHON)
 end
 
 # Install dependencies into the same interpreter PyCall uses.
+# This is redundant with CI.yml.
 run(`$PYTHON -m pip install pandas`)
 run(`$PYTHON -m pip install twowayfeweights`)
 

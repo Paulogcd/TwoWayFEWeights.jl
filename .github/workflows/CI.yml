@@ -70,13 +70,29 @@ jobs:
 
         shell: Rscript {0}
 
-      - uses: julia-actions/cache@v3
+      # Temporary disabling caching.
+      # - uses: julia-actions/cache@v3
       
-      - name: Inspect Conda configuration # Debugging Conda error.
+
+      - name: Diagnose Conda installation # Debugging Conda Error
         run: |
-          find ~/.julia/packages/Conda -name deps.jl -print
-          grep -R -nE 'ROOTENV|CONDA_JL_HOME|conda/3' \
-            ~/.julia/packages/Conda/*/deps 2>/dev/null || true
+          echo "=== Conda root directory ==="
+          if [ -d "$HOME/.julia/conda/3/x86_64" ]; then
+            ls -la "$HOME/.julia/conda/3/x86_64"
+          else
+            echo "Conda root directory is MISSING"
+          fi
+
+          echo "=== Conda executable ==="
+          if [ -x "$HOME/.julia/conda/3/x86_64/bin/conda" ]; then
+            echo "Conda executable exists"
+          else
+            echo "Conda executable is MISSING"
+          fi
+
+          echo "=== Conda configuration ==="
+          cat ~/.julia/packages/Conda/05AVg/deps/deps.jl
+
       
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-runtest@v1
