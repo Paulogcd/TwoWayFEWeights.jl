@@ -24,6 +24,8 @@ wagepan = ReadStatTables.readstat(path)
 wagepan = DataFrames.DataFrame(wagepan)
 ```
 
+Now, if we want to compute 
+
 ```julia
 julia_resultat = twowayfeweights(
     data                = wagepan,

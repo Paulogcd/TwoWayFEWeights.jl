@@ -11,7 +11,6 @@ Test.@testset "1 - Wolfers 2006" begin
     path = Downloads.download(url, "./wolfers2006_twfeweights.dta")
     data = ReadStatTables.readstat(path)
     data = DataFrames.DataFrame(data)
-    data[!, :state]
 
     # R
     RCall.@rput path
@@ -86,4 +85,7 @@ Test.@testset "1 - Wolfers 2006" begin
     )")
 
     compare_R_julia(test_1_R, test_1_julia)
+
+    # Cleaning up
+    rm(path)
 end;

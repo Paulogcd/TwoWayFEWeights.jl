@@ -341,11 +341,6 @@ function compare_R_julia(R_object_k::DataFrames.DataFrame, julia_object_k::DataF
         R_test = RCall.rcopy(R"R_object_k[[col_name]]")
 
         result = isequal(R_test, julia_test)
-
-        # diff = R_test .- julia_test
-        # inspect = isapprox.(diff, 0)
-        # R_object_k[inspect, [:Y, :G, :T]]
-        # R_object_k[inspect, :]
         
         if !result
             

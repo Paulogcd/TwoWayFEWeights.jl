@@ -2,8 +2,6 @@
 /starting.jl
 /utils_pkg
 /test/data/output/*
-/test/sandbox_1.jl
-/test/sandbox_2.jl
-/utils_pkgs.jl
-/utils_docs.sh
-/utils_test.jl
+**/.venv/
+.DS_Store
+/test/.DS_Store
