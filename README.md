@@ -2,6 +2,8 @@
 
 [![Build Status](https://github.com/Paulogcd/TwoWayFEWeights.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/Paulogcd/TwoWayFEWeights.jl/actions/workflows/CI.yml?query=branch%3Amain)   <a href="https://www.paulogcd.com/TwoWayFEWeights.jl"><img src="https://img.shields.io/static/v1?label=TwoWayFEWeights&message=Docs&color=blue" alt="TwoWayFEWeights - Docs"></a>
 
+[![codecov](https://codecov.io/gh/Paulogcd/TwoWayFEWeights.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/Paulogcd/TwoWayFEWeights)
+
 This package is the Julia translation of the [ERC REALLYCREDIBLE Team](https://credible-answers.github.io) team R `twowayfeweights` package, [available here](https://github.com/chaisemartinPackages/twowayfeweights).
 
 It provides a function (`twowayfeweights`) to compute the Two Way Fixed Effects (TWFE) estimate of de Chaisemartin and D'Haultfoeuille (2020), [available here](https://www.aeaweb.org/articles?id=10.1257/aer.20181169).

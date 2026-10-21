@@ -50,21 +50,6 @@ jobs:
         run: |
           echo "LD_LIBRARY_PATH=$(R RHOME)/lib:$LD_LIBRARY_PATH" >> $GITHUB_ENV
 
-      - name: Install the original R package
-        run: |
-
-          install.packages("forcats", repos = "https://cloud.r-project.org")
-          install.packages("readr", repos = "https://cloud.r-project.org")
-          install.packages("vctrs", repos = "https://cloud.r-project.org")
-          install.packages("glue", repos = "https://cloud.r-project.org")
-          install.packages("pillar", repos = "https://cloud.r-project.org")
-          install.packages("hms", repos = "https://cloud.r-project.org")
-          install.packages("tidyselect", repos = "https://cloud.r-project.org")
-          install.packages("tibble", repos = "https://cloud.r-project.org")
-          install.packages("haven", repos = "https://cloud.r-project.org")
-    
-          install.packages("TwoWayFEWeights", repos = "https://cloud.r-project.org")
-
         shell: Rscript {0}
       
       - uses: julia-actions/cache@v3
@@ -79,5 +64,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # If authenticating with GitHub Actions token
           DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }} # If authenticating with SSH deploy key
-      - uses: julia-actions/julia-processcoverage@v1
-      - uses: codecov/codecov-action@v7
