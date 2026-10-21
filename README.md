@@ -35,7 +35,7 @@ The package has one external function, `twowayfeweights()` that allows 4 differe
 
 ## Example
 
-For example, using the example dataset of [F. Vella and M. Verbeek (1998), “Whose Wages Do Unions Raise? A Dynamic Model of Unionism and Wage Rate Determination for Young Men”.](https://www.jstor.org/stable/223257) (also used as the first example in the original R and State packages), we can compute a Fixed-Effects Regression with Common Trend (feTR) treating `lwage` as the outcome variable.
+For example, using the example dataset of [F. Vella and M. Verbeek (1998), “Whose Wages Do Unions Raise? A Dynamic Model of Unionism and Wage Rate Determination for Young Men”](https://www.jstor.org/stable/223257) (also used as the first example in the original R and Stata packages), we can compute a Fixed-Effects Regression with Common Trend (feTR) treating `lwage` as the outcome variable and `union` as the treatment variable.
 
 ```julia
 # Package management

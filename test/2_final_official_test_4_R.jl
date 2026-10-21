@@ -44,7 +44,6 @@ Test.@testset "4 - Gentzkow et al. 2011" begin
         end
     end
     
-    # test_result(test_4_R, test_4_julia)
     compare_R_julia(test_4_R, test_4_julia)
     
 end;

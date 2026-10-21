@@ -85,8 +85,6 @@ function test_3_comparison()
     original = CSV.read("./test/data/2_official_test_3_data_original.csv", DataFrames.DataFrame)
     alternative = CSV.read("./test/data/2_official_test_3_data_alternative.csv", DataFrames.DataFrame)
 
-    test_result(original, alternative)
-
     for col in names(original)
         test_resultat = original[!, col] == alternative[!, col]
         if test_resultat
@@ -95,9 +93,6 @@ function test_3_comparison()
             print("Problem wit ", col, "\n")
         end
     end
-
-    original[!, :prestout]
-    alternative[!, :prestout]
 
     names(original) == names(alternative)
 
