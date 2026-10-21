@@ -75,6 +75,8 @@ jobs:
       
       - uses: julia-actions/julia-buildpkg@v1
 
+      - uses: julia-actions/julia-runtest@v1
+
       - name: Diagnose Conda installation
         run: |
           echo "=== Conda package files ==="
@@ -97,5 +99,3 @@ jobs:
           echo "=== Generated configuration ==="
           grep -R -nE 'ROOTENV|CONDA_EXE' \
             ~/.julia/packages/Conda/*/deps 2>/dev/null || true
-
-      - uses: julia-actions/julia-runtest@v1
