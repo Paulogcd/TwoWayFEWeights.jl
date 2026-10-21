@@ -71,5 +71,12 @@ jobs:
         shell: Rscript {0}
 
       - uses: julia-actions/cache@v3
+      
+      - name: Inspect Conda configuration # Debugging Conda error.
+        run: |
+          find ~/.julia/packages/Conda -name deps.jl -print
+          grep -R -nE 'ROOTENV|CONDA_JL_HOME|conda/3' \
+            ~/.julia/packages/Conda/*/deps 2>/dev/null || true
+      
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-runtest@v1
