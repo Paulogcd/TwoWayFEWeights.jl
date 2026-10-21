@@ -14,7 +14,8 @@ if realpath(PyCall.python) != realpath(PYTHON)
 end
 
 # Install dependencies into the same interpreter PyCall uses.
-run(`$PYTHON -m pip install -r $(joinpath(TEST_DIR, "requirements-python.txt"))`)
+run(`$PYTHON -m pip install pandas`)
+run(`$PYTHON -m pip install twowayfeweights`)
 
 # Verify Python dependencies.
 run(`$PYTHON -c "import pandas; import twowayfeweights; print('Python dependencies OK')"`)
